@@ -29,7 +29,7 @@ namespace PeopleEssence.Controllers
         //Candidate
         [HttpPost]
         [Route("Registration")]
-        public async Task<APIResponse> AddCandidate([FromBody] ApplyCandidates candidates)
+        public async Task<APIResponse> AddCandidate([FromBody] CandidatesVM candidates)
         {
             APIResponse result = new APIResponse();
             result = await objRep.ApplyCandidateAsync(candidates);
@@ -78,7 +78,8 @@ namespace PeopleEssence.Controllers
 
         }
 
-        //CandidateDetail
+      
+
 
        
         

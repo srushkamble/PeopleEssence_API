@@ -29,7 +29,7 @@ namespace PeopleEssence.BusinessLayer.Interface
         
 
         //Candidate
-        public async Task<APIResponse> ApplyCandidateAsync(ApplyCandidates candidate)
+        public async Task<APIResponse> ApplyCandidateAsync(CandidatesVM candidate)
         {
             APIResponse result = new APIResponse();
             try
@@ -62,6 +62,7 @@ namespace PeopleEssence.BusinessLayer.Interface
                             ReferencesEmpId = candidate.ReferencesEmpId,
                             LinkedInLink = candidate.LinkedInLink,
                             RegistrationDate = candidate.RegistrationDate,
+                            Status = "Applied",
                         };
                         db.Candidates.Add(newCandidate);
                         var cnt = await db.SaveChangesAsync();
@@ -94,6 +95,7 @@ namespace PeopleEssence.BusinessLayer.Interface
                             result.Code = 500;
                             result.Status = "Failed";
                             result.Message = "error.";
+
                         }
                     }
                 }
@@ -173,10 +175,15 @@ namespace PeopleEssence.BusinessLayer.Interface
 
         }
 
-     
+      
 
-        
+
 
 
     }
+
+
+
+
+
 }

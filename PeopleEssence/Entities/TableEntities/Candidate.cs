@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace PeopleEssence.DataContext.Entities.TableEntities
+namespace PeopleEssence.Entities.TableEntities
 {
     public partial class Candidate
     {
@@ -60,6 +60,5 @@ namespace PeopleEssence.DataContext.Entities.TableEntities
 
         [InverseProperty(nameof(CandidatesDetail.Candidate))]
         public virtual ICollection<CandidatesDetail> CandidatesDetails { get; set; }
-
     }
 }

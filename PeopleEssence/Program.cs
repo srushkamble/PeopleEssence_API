@@ -12,6 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IRepository, Repository>();
+builder.Services.AddTransient<IAdminRepository, AdminRepository>();
 builder.Services.AddDbContext<PeopleEssenceDbContext>(options =>
 {
     options.UseSqlServer(

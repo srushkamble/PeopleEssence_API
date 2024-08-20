@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PeopleEssence.BusinessLayer.Models.RequestBody
 {
-    public class ApplyCandidates
+    public class CandidatesVM
     {
         public int CandidateId { get; set; }
         public string FirstName { get; set; } = null!;
@@ -35,5 +35,10 @@ namespace PeopleEssence.BusinessLayer.Models.RequestBody
         public string? Education { get; set; }
         public DateTime? EduFromDate { get; set; }
         public DateTime? EduToDate { get; set; }
+        public string? Status { get; set; }
+
     }
+
+
+
 }

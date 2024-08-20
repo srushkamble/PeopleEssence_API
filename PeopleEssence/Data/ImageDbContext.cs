@@ -2,22 +2,21 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using PeopleEssence.DataContext.Entities.TableEntities;
+using PeopleEssence.Entities.TableEntities;
 
-namespace PeopleEssence.DataContext.Data
+namespace PeopleEssence.Data
 {
-    public partial class PeopleEssenceDbContext : DbContext
+    public partial class ImageDbContext : DbContext
     {
-        public PeopleEssenceDbContext()
+        public ImageDbContext()
         {
         }
 
-        public PeopleEssenceDbContext(DbContextOptions<PeopleEssenceDbContext> options)
+        public ImageDbContext(DbContextOptions<ImageDbContext> options)
             : base(options)
         {
         }
 
-        public virtual DbSet<Admin> Admins { get; set; } = null!;
         public virtual DbSet<Candidate> Candidates { get; set; } = null!;
         public virtual DbSet<CandidatesDetail> CandidatesDetails { get; set; } = null!;
 

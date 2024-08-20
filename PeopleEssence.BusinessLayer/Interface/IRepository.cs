@@ -10,12 +10,14 @@ namespace PeopleEssence.BusinessLayer.Interface
 {
     public interface IRepository
     {
-        //Candidate
-       Task<APIResponse> ApplyCandidateAsync(ApplyCandidates candidate);
-        Task<APIResponse> GetCandidateByEmailAsync(string email);
-        Task<APIResponse> GetCandidateByIdAsync(int Id);
-
-        //CandidateDetails
       
+       Task<APIResponse> ApplyCandidateAsync(CandidatesVM candidate);
+       Task<APIResponse> GetCandidateByEmailAsync(string email);
+       Task<APIResponse> GetCandidateByIdAsync(int Id);
+ 
+
+
+
+
     }
 }
