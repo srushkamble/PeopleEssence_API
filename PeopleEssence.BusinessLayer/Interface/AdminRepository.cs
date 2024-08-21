@@ -89,39 +89,44 @@ namespace PeopleEssence.BusinessLayer.Interface
             CandidateAPIResponse result = new CandidateAPIResponse();
             using (PeopleEssenceTestEntities db = new PeopleEssenceTestEntities())
             {
-                var candidates = await db.Candidates.ToListAsync();
-                var candidateDetails = await db.CandidatesDetails.ToListAsync();
-
-                var combinedData = Ca(candidates, candidateDetails);
-
-                var combinedData = candidates.Select(candidate =>
-                {
-                    var detail = candidateDetails.FirstOrDefault(cd => cd.CandidateId == candidate.CandidateId);
-                    CandidatesVM candidatesVM = new CandidatesVM
-                    {
-                        FirstName = candidate.FirstName,
-                        LastName = candidate.LastName,
-                        Education = candidate.Ed
-                    };
-
-                    
-                }).ToList();
-
-                if (combinedData.Any())
+                var c = await db.Candidates.FirstOrDefaultAsync();
+                var cd = await db.CandidatesDetails.FirstOrDefaultAsync();
+                
+                CandidatesVM candidatesVM = new CandidatesVM
                 {
 
-                    result.Code = 200;
-                    result.Status = "success";
-                    result.Message = " Candidate Details";
-                    result.Data = combinedData;
-                    
-                }
-                else
-                {
-                    result.Code = 404;
-                    result.Status = "error";
-                    result.Message = "No  candidates found.";
-                }
+                    FirstName = c.FirstName,
+                    LastName = c.LastName,
+                    Email = c.Email,
+                    PhoneNumber = c.PhoneNumber,
+                    Gender = c.Gender,
+                    Resumefile = c.Resumefile,
+                    AppliedPosition = c.AppliedPosition,
+                    Skills = c.Skills,
+                    CurrentLocation = c.CurrentLocation,
+                    PreferedLocation = c.PreferedLocation,
+                    CurrentCtc = c.CurrentCtc,
+                    ExpectedCtc = c.ExpectedCtc,
+                    References = c.References,
+                    ReferencesEmpId = c.ReferencesEmpId,
+                    LinkedInLink = c.LinkedInLink,
+                    RegistrationDate = DateTime.Now,
+                    PreviousEmp = cd.PreviousEmp,
+                    FromDate = cd.FromDate,
+                    ToDate = cd.ToDate,
+                    Education = cd.Education,
+                    EduFromDate = cd.EduFromDate,
+                    EduToDate = cd.ToDate,
+                    Status = c.Status,
+
+                };
+
+                result.Code = 200;
+                result.Message = "Retrived Data";
+                result.Status = "success";
+                result.Data = candidatesVM;
+
+
             }
             return result;
         }

@@ -1,4 +1,5 @@
-﻿using PeopleEssence.DataContext.Entities.TableEntities;
+﻿using PeopleEssence.BusinessLayer.Models.RequestBody;
+using PeopleEssence.DataContext.Entities.TableEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace PeopleEssence.BusinessLayer.Models.ResponseBody
         public string? Status { get; set; }
         public string? Message { get; set; }
         //public string? Data { get; set; }
-        public List<Candidate>? Data { get; set; }
+        public CandidatesVM? Data { get; set; }
 
         
     }
